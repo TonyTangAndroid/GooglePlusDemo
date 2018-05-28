@@ -2,7 +2,7 @@ Google+ Android Sample App demo
 =========================
 This is a sample app to demonstrate how to create a Google Plus Android sample app that integrates the following UI elements:
 
-[](google_plus_demo.gif?raw=true)
+[demo gif preview](google_plus_demo.gif?raw=true)
 
 BottomNavigationBar 
 ViewPager 
