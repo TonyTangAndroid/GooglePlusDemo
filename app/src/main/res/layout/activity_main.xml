@@ -39,4 +39,17 @@
         app:layout_behavior="io.anycopy.googleplusdemo.BottomNavigationBehavior"
         app:menu="@menu/navigation"/>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:fabSize="normal"
+        app:layout_anchor="@id/navigation"
+        app:layout_anchorGravity="top|end"
+        app:layout_behavior="io.anycopy.googleplusdemo.BottomNavigationFABBehavior"
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        app:useCompatPadding="true"/>
+
+
 </android.support.design.widget.CoordinatorLayout>
