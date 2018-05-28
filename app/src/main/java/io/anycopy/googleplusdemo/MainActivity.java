@@ -20,12 +20,14 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
-
+    private BottomNavigationView navigation;
+    private Toolbar toolbar;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            toolbar.setTitle(item.getTitle());
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     viewPager.setCurrentItem(0);
@@ -40,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
-    private BottomNavigationView navigation;
-    private Toolbar toolbar;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,6 +79,16 @@ public class MainActivity extends AppCompatActivity {
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         bindNavigationDrawer();
+        initTitle();
+    }
+
+    private void initTitle() {
+        toolbar.post(new Runnable() {
+            @Override
+            public void run() {
+                toolbar.setTitle(navigation.getMenu().getItem(0).getTitle());
+            }
+        });
     }
 
     private void bindNavigationDrawer() {
