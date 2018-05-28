@@ -21,9 +21,8 @@ The whole repository contains several branches, which gradually adds a new featu
 
 
 ## Sample Apk download link 
-![apk](https://github.com/TonyTangAndroid/GooglePlusDemo/releases/download/0.0.5/app-debug-v4.apk)
+###[click to download the apk](https://github.com/TonyTangAndroid/GooglePlusDemo/releases/download/0.0.5/app-debug-v4.apk)
 
----
 
 
 License
