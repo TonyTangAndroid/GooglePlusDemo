@@ -37,6 +37,6 @@ public class DashboardChildFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TextView tvDashBoard = view.findViewById(R.id.tv_dashboard);
         int position = getArguments().getInt(ARGUMENT_POSITION, -1);
-        tvDashBoard.setText(getString(R.string.title_dashboard) + "" + position);
+        tvDashBoard.setText(position == 0 ? R.string.do_not_stop_believing : R.string.life_is_a_very_funny_proposition_after_all);
     }
 }
