@@ -2,7 +2,7 @@ Google+ Android Sample App demo
 =========================
 This is a sample app to demonstrate how to create a Google Plus Android sample app that integrates the following UI elements:
 
-[Gif demo](google_plus_demo.gif?raw=true)
+[](google_plus_demo.gif?raw=true)
 
 BottomNavigationBar 
 ViewPager 
@@ -19,6 +19,11 @@ The whole repository contains several branches, which gradually adds a new featu
 
 [Integrate CoordinatorLayout + BottomNavigationView + Toolbar + TabLayout + ViewPager + Fragment + DrawerLayout](https://medium.com/@tonythompsoncmu/integrate-coordinatorlayout-bottomnavigationview-toolbar-tablayout-viewpager-fragment-e4268e83b475)
 
+
+## Sample Apk download link 
+![apk](https://github.com/TonyTangAndroid/GooglePlusDemo/releases/download/0.0.5/app-debug-v4.apk)
+
+---
 
 
 License
