@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-    public static class GooglePlusFragmentPageAdapter extends FragmentPagerAdapter {
+    private static class GooglePlusFragmentPageAdapter extends FragmentPagerAdapter {
 
 
         public GooglePlusFragmentPageAdapter(FragmentManager fm) {
