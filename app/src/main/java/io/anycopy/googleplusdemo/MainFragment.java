@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -79,9 +78,6 @@ public class MainFragment extends Fragment implements BottomNavigationView.OnNav
         navigationView = rootView.findViewById(R.id.nav_view);
         drawer = rootView.findViewById(R.id.drawer_layout);
         rootView.findViewById(R.id.floating_action_button).setOnClickListener(view -> onFabClicked());
-
-        ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
-
         GooglePlusFragmentPageAdapter adapter = new GooglePlusFragmentPageAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(adapter.getCount() - 1);
@@ -93,7 +89,7 @@ public class MainFragment extends Fragment implements BottomNavigationView.OnNav
 
 
     private void initTitle() {
-        toolbar.post(() -> toolbar.setTitle(navigation.getMenu().getItem(0).getTitle()));
+        toolbar.setTitle(navigation.getMenu().getItem(0).getTitle());
     }
 
     private void bindNavigationDrawer() {
