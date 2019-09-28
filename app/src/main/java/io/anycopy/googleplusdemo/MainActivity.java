@@ -156,9 +156,9 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return HomeFragment.newInstance();
+                    return HomeFragment.newInstance(1);
                 case 1:
-                    return DashboardFragment.newInstance();
+                    return DashboardFragment.newInstance("Tony");
                 case 2:
                     return NotificationFragment.newInstance();
             }
