@@ -3,10 +3,7 @@ package io.anycopy.googleplusdemo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,6 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,12 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initTitle() {
-        toolbar.post(new Runnable() {
-            @Override
-            public void run() {
-                toolbar.setTitle(navigation.getMenu().getItem(0).getTitle());
-            }
-        });
+        toolbar.post(() -> toolbar.setTitle(navigation.getMenu().getItem(0).getTitle()));
     }
 
     private void bindNavigationDrawer() {
@@ -144,6 +140,10 @@ public class MainActivity extends AppCompatActivity {
         Snackbar.make(navigation, "Share", Snackbar.LENGTH_SHORT).show();
     }
 
+    public void onFabClicked(View view) {
+        showShareSnackBar();
+    }
+
 
     private static class GooglePlusFragmentPageAdapter extends FragmentPagerAdapter {
 
@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             super(fm);
         }
 
+        @NonNull
         @Override
         public Fragment getItem(int position) {
             switch (position) {
@@ -161,8 +162,9 @@ public class MainActivity extends AppCompatActivity {
                     return DashboardFragment.newInstance("Tony");
                 case 2:
                     return NotificationFragment.newInstance();
+                default:
+                    throw new RuntimeException("Not supported");
             }
-            return null;
         }
 
         @Override

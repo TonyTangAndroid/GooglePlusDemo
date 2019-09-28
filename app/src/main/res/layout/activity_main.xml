@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             app:fabSize="normal"
+            android:onClick="onFabClicked"
             app:layout_anchor="@id/navigation"
             app:layout_anchorGravity="top|end"
             app:layout_behavior="io.anycopy.googleplusdemo.BottomNavigationFABBehavior"
