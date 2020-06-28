@@ -6,6 +6,7 @@
     android:id="@+id/menu_send"
     android:icon="@drawable/ic_menu_send"
     android:title="@string/send"
+    android:orderInCategory="2"
     app:showAsAction="ifRoom" />
 
 </menu>
