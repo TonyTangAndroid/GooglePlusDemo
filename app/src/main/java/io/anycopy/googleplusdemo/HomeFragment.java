@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import java.util.Objects;
 import timber.log.Timber;
 
 public class HomeFragment extends Fragment {
@@ -22,6 +21,12 @@ public class HomeFragment extends Fragment {
     return homeFragment;
   }
 
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    getLifecycle().addObserver(new TimberLogger(this));
+  }
+
   @Nullable
   @Override
   public View onCreateView(
@@ -34,7 +39,7 @@ public class HomeFragment extends Fragment {
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    int id = Objects.requireNonNull(getArguments()).getInt(ARG_ID);
+    int id = requireArguments().getInt(ARG_ID);
     Timber.d("param as id:%s", id);
   }
 }
