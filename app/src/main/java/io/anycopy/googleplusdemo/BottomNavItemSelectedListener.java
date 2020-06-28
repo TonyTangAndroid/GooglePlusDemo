@@ -20,18 +20,17 @@ public class BottomNavItemSelectedListener
   @Override
   public boolean onNavigationItemSelected(@NonNull MenuItem item) {
     toolbar.setTitle(item.getTitle());
-    switch (item.getItemId()) {
-      case R.id.navigation_home:
-        viewPager.setCurrentItem(0);
-        return true;
-      case R.id.navigation_dashboard:
-        viewPager.setCurrentItem(1);
-        return true;
-      case R.id.navigation_notifications:
-        viewPager.setCurrentItem(2);
-        return true;
-      default:
-        return false;
+    int itemId = item.getItemId();
+    if (itemId == R.id.navigation_home) {
+      viewPager.setCurrentItem(0);
+      return true;
+    } else if (itemId == R.id.navigation_dashboard) {
+      viewPager.setCurrentItem(1);
+      return true;
+    } else if (itemId == R.id.navigation_notifications) {
+      viewPager.setCurrentItem(2);
+      return true;
     }
+    return false;
   }
 }
