@@ -6,6 +6,7 @@
     android:id="@+id/menu_message"
     android:icon="@drawable/ic_baseline_message_24"
     android:title="@string/message"
+    android:orderInCategory="2"
     app:showAsAction="ifRoom" />
 
 </menu>
