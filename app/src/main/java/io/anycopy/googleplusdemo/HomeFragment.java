@@ -14,26 +14,29 @@ import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
-    private static final String ARG_ID = "arg_id";
+  private static final String ARG_ID = "arg_id";
 
-    public static HomeFragment newInstance(int id) {
-        Bundle bundle = new Bundle();
-        bundle.putInt(ARG_ID, id);
-        HomeFragment homeFragment = new HomeFragment();
-        homeFragment.setArguments(bundle);
-        return homeFragment;
-    }
+  public static HomeFragment newInstance(int id) {
+    Bundle bundle = new Bundle();
+    bundle.putInt(ARG_ID, id);
+    HomeFragment homeFragment = new HomeFragment();
+    homeFragment.setArguments(bundle);
+    return homeFragment;
+  }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
+  @Nullable
+  @Override
+  public View onCreateView(
+      @NonNull LayoutInflater inflater,
+      @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.fragment_home, container, false);
+  }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        int id = Objects.requireNonNull(getArguments()).getInt(ARG_ID);
-        Toast.makeText(requireContext(), "id:" + id, Toast.LENGTH_SHORT).show();
-    }
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    int id = Objects.requireNonNull(getArguments()).getInt(ARG_ID);
+    Toast.makeText(requireContext(), "id:" + id, Toast.LENGTH_SHORT).show();
+  }
 }

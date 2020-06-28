@@ -11,14 +11,16 @@ import androidx.fragment.app.Fragment;
 
 public class NotificationFragment extends Fragment {
 
+  public static NotificationFragment newInstance() {
+    return new NotificationFragment();
+  }
 
-    public static NotificationFragment newInstance() {
-        return new NotificationFragment();
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_notification, container, false);
-    }
+  @Nullable
+  @Override
+  public View onCreateView(
+      @NonNull LayoutInflater inflater,
+      @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.fragment_notification, container, false);
+  }
 }
