@@ -20,21 +20,21 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.snack_bar, menu);
+    getMenuInflater().inflate(R.menu.search, menu);
     return super.onCreateOptionsMenu(menu);
   }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    if (item.getItemId() == R.id.menu_show_snack_bar) {
-      showSnackBar();
+    if (item.getItemId() == R.id.menu_search) {
+      showSearch();
       return true;
     }
     return super.onOptionsItemSelected(item);
   }
 
-  private void showSnackBar() {
-    Snackbar.make(navigation, "Some text", Snackbar.LENGTH_LONG).show();
+  private void showSearch() {
+    Snackbar.make(navigation, "Go to Search", Snackbar.LENGTH_LONG).show();
   }
 
   @Override

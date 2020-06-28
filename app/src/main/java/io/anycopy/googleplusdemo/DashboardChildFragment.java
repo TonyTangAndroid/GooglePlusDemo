@@ -3,15 +3,14 @@ package io.anycopy.googleplusdemo;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import java.util.Objects;
 
 public class DashboardChildFragment extends Fragment {
 
@@ -28,6 +27,20 @@ public class DashboardChildFragment extends Fragment {
     return fragment;
   }
 
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setHasOptionsMenu(true);
+  }
+
+  @Override
+  public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+    int position = requireArguments().getInt(ARGUMENT_POSITION, -1);
+    if (position == 1) {
+      inflater.inflate(R.menu.delete, menu);
+    }
+  }
+
   @Nullable
   @Override
   public View onCreateView(
@@ -42,8 +55,8 @@ public class DashboardChildFragment extends Fragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     TextView tvDashBoard = view.findViewById(R.id.tv_dashboard);
-    int position = Objects.requireNonNull(getArguments()).getInt(ARGUMENT_POSITION, -1);
-    String name = Objects.requireNonNull(getArguments()).getString(ARGUMENT_NAME);
+    int position = requireArguments().getInt(ARGUMENT_POSITION, -1);
+    String name = requireArguments().getString(ARGUMENT_NAME);
     tvDashBoard.setText(
         position == 0
             ? R.string.do_not_stop_believing

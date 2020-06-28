@@ -2,19 +2,17 @@ package io.anycopy.googleplusdemo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.Objects;
 
 public class DashboardFragment extends Fragment {
 
@@ -43,11 +41,22 @@ public class DashboardFragment extends Fragment {
     ViewPager viewPager = view.findViewById(R.id.view_pager);
     GooglePlusFragmentPageAdapter adapter =
         new GooglePlusFragmentPageAdapter(
-            getChildFragmentManager(), Objects.requireNonNull(getArguments()).getString(ARG_NAME));
+            getChildFragmentManager(), requireArguments().getString(ARG_NAME));
     viewPager.setAdapter(adapter);
     viewPager.setOffscreenPageLimit(adapter.getCount() - 1);
     TabLayout tabLayout = view.findViewById(R.id.tabs);
     tabLayout.setupWithViewPager(viewPager);
+  }
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setHasOptionsMenu(true);
+  }
+
+  @Override
+  public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+    inflater.inflate(R.menu.send, menu);
   }
 
   private static class GooglePlusFragmentPageAdapter extends FragmentPagerAdapter {
@@ -59,6 +68,7 @@ public class DashboardFragment extends Fragment {
       this.name = name;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
       return DashboardChildFragment.newInstance(position, name);
