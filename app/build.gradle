@@ -1,42 +1,42 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion = '30.0.0'
-    defaultConfig {
-        applicationId "io.anycopy.googleplusdemo"
-        minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
+  compileSdkVersion 30
+  buildToolsVersion = '30.0.0'
+  defaultConfig {
+    applicationId "io.anycopy.googleplusdemo"
+    minSdkVersion 23
+    targetSdkVersion 30
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    vectorDrawables.useSupportLibrary = true
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
-    }
+  }
+  compileOptions {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+  }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    testImplementation 'junit:junit:4.13'
-    testImplementation 'com.google.truth:truth:1.0.1'
-    androidTestImplementation 'androidx.test:core:1.2.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
-    androidTestImplementation 'androidx.test:rules:1.2.0'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'com.google.truth:truth:1.0.1'
+  implementation 'androidx.appcompat:appcompat:1.1.0'
+  implementation 'androidx.annotation:annotation:1.1.0'
+  implementation 'com.google.android.material:material:1.1.0'
+  implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+  testImplementation 'junit:junit:4.13'
+  testImplementation 'com.google.truth:truth:1.0.1'
+  androidTestImplementation 'androidx.test:core:1.2.0'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
+  androidTestImplementation 'androidx.test:rules:1.2.0'
+  androidTestImplementation 'androidx.test:runner:1.2.0'
+  androidTestImplementation 'com.google.truth:truth:1.0.1'
 }
