@@ -52,6 +52,7 @@ public class DashboardFragment extends Fragment {
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setHasOptionsMenu(true);
+    getLifecycle().addObserver(new TimberLogger(this));
   }
 
   @Override
