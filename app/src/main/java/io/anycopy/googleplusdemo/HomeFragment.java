@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import java.util.Objects;
+import timber.log.Timber;
 
 public class HomeFragment extends Fragment {
 
@@ -37,6 +35,6 @@ public class HomeFragment extends Fragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     int id = Objects.requireNonNull(getArguments()).getInt(ARG_ID);
-    Toast.makeText(requireContext(), "id:" + id, Toast.LENGTH_SHORT).show();
+    Timber.d("param as id:%s", id);
   }
 }
