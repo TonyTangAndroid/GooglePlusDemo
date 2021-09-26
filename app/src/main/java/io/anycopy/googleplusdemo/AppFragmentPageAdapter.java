@@ -16,9 +16,9 @@ class AppFragmentPageAdapter extends FragmentPagerAdapter {
   public Fragment getItem(int position) {
     switch (position) {
       case 0:
-        return HomeFragment.newInstance(1);
-      case 1:
         return DashboardFragment.newInstance("Tony");
+      case 1:
+        return HomeFragment.newInstance(1);
       case 2:
         return NotificationFragment.newInstance();
       default:

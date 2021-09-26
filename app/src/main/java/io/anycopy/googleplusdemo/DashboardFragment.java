@@ -11,7 +11,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayout.Tab;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class DashboardFragment extends Fragment {
@@ -45,9 +47,20 @@ public class DashboardFragment extends Fragment {
     viewPager.setOffscreenPageLimit(adapter.getItemCount() - 1);
     TabLayout tabLayout = view.findViewById(R.id.tabs);
 
-    new TabLayoutMediator(
-            tabLayout, viewPager, (tab, position) -> tab.setText(adapter.getPageTitle(position)))
-        .attach();
+    new TabLayoutMediator(tabLayout, viewPager, this::setTabItem).attach();
+  }
+
+  private void setTabItem(Tab tab, int position) {
+    tab.setText(getPageTitle(position));
+    BadgeDrawable badge = tab.getOrCreateBadge();
+    if (position == 0) {
+      badge.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light, null));
+    } else {
+      badge.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark, null));
+      badge.setBadgeTextColor(getResources().getColor(android.R.color.white, null));
+      tab.setIcon(R.drawable.ic_notifications_black_24dp);
+      badge.setNumber(123);
+    }
   }
 
   @Override
@@ -60,6 +73,10 @@ public class DashboardFragment extends Fragment {
   @Override
   public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
     inflater.inflate(R.menu.send, menu);
+  }
+
+  private CharSequence getPageTitle(int position) {
+    return "Dashboard " + position;
   }
 
   private static class GooglePlusFragmentPageAdapter extends FragmentStateAdapter {
@@ -80,10 +97,6 @@ public class DashboardFragment extends Fragment {
     @Override
     public int getItemCount() {
       return 2;
-    }
-
-    public CharSequence getPageTitle(int position) {
-      return "Dashboard " + position;
     }
   }
 }
