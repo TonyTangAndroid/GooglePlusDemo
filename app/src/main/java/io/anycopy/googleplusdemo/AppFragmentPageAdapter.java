@@ -1,19 +1,19 @@
 package io.anycopy.googleplusdemo;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-class AppFragmentPageAdapter extends FragmentPagerAdapter {
+class AppFragmentPageAdapter extends FragmentStateAdapter {
 
-  public AppFragmentPageAdapter(FragmentManager fm) {
-    super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+  public AppFragmentPageAdapter(AppCompatActivity appCompatActivity) {
+    super(appCompatActivity);
   }
 
   @NonNull
   @Override
-  public Fragment getItem(int position) {
+  public Fragment createFragment(int position) {
     switch (position) {
       case 0:
         return HomeFragment.newInstance(1);
@@ -27,7 +27,7 @@ class AppFragmentPageAdapter extends FragmentPagerAdapter {
   }
 
   @Override
-  public int getCount() {
+  public int getItemCount() {
     return 3;
   }
 }
