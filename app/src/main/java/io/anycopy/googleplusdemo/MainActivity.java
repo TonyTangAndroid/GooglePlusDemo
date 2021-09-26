@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     ViewPager2 viewPager = findViewById(R.id.view_pager);
+    // https://stackoverflow.com/a/55193815/4068957
+    viewPager.setUserInputEnabled(false);
     AppFragmentPageAdapter adapter = new AppFragmentPageAdapter(this);
     viewPager.setAdapter(adapter);
     viewPager.setOffscreenPageLimit(adapter.getItemCount() - 1);
