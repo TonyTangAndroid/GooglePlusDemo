@@ -3,16 +3,16 @@ package io.anycopy.googleplusdemo;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavItemSelectedListener
     implements BottomNavigationView.OnNavigationItemSelectedListener {
 
   private final Toolbar toolbar;
-  private final ViewPager viewPager;
+  private final ViewPager2 viewPager;
 
-  public BottomNavItemSelectedListener(ViewPager viewPager, Toolbar toolbar) {
+  public BottomNavItemSelectedListener(ViewPager2 viewPager, Toolbar toolbar) {
     this.toolbar = toolbar;
     this.viewPager = viewPager;
   }
