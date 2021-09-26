@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     viewPager.setOffscreenPageLimit(adapter.getItemCount() - 1);
     navigation = findViewById(R.id.navigation);
     BottomNavItemSelectedListener listener = new BottomNavItemSelectedListener(viewPager, toolbar);
-    navigation.setOnNavigationItemSelectedListener(listener);
+    navigation.setOnItemSelectedListener(listener);
     bindNavigationDrawer();
     initTitle();
   }
