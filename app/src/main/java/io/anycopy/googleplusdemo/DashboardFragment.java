@@ -46,7 +46,6 @@ public class DashboardFragment extends Fragment {
     viewPager.setAdapter(adapter);
     viewPager.setOffscreenPageLimit(adapter.getItemCount() - 1);
     TabLayout tabLayout = view.findViewById(R.id.tabs);
-
     new TabLayoutMediator(tabLayout, viewPager, this::setTabItem).attach();
   }
 
