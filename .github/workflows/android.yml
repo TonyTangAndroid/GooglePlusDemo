@@ -101,7 +101,7 @@ jobs:
           rm -f app/src/prod/google-services.json
   instrumented-tests:
     name: Instrumented tests
-    runs-on: macos-latest
+    runs-on: macos-10.15
     timeout-minutes: 25
     env:
       JAVA_TOOL_OPTIONS: -Xmx4g
@@ -121,7 +121,7 @@ jobs:
           key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/**/*.java') }}
 
       - name: Run Android instrumented tests
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@v2.20.0
         with:
           api-level: 28
           arch: x86_64

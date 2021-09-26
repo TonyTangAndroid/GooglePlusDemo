@@ -1,10 +1,12 @@
 buildscript {
   repositories {
     google()
+    mavenCentral()
+    //noinspection JcenterRepositoryObsolete
     jcenter()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:4.1.0-beta02'
+    classpath 'com.android.tools.build:gradle:4.2.2'
   }
 
 }
@@ -16,6 +18,8 @@ plugins {
 allprojects {
   repositories {
     google()
+    mavenCentral()
+    //noinspection JcenterRepositoryObsolete
     jcenter()
   }
 }
@@ -26,9 +30,10 @@ subprojects { project ->
   }
 
   repositories {
-    jcenter()
     google()
-  }
+    mavenCentral()
+    //noinspection JcenterRepositoryObsolete
+    jcenter()  }
 
 }
 
