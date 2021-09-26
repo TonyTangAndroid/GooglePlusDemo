@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class DashboardFragment extends Fragment {
 
@@ -38,14 +38,16 @@ public class DashboardFragment extends Fragment {
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    ViewPager viewPager = view.findViewById(R.id.view_pager);
+    ViewPager2 viewPager = view.findViewById(R.id.view_pager);
     GooglePlusFragmentPageAdapter adapter =
-        new GooglePlusFragmentPageAdapter(
-            getChildFragmentManager(), requireArguments().getString(ARG_NAME));
+        new GooglePlusFragmentPageAdapter(this, requireArguments().getString(ARG_NAME));
     viewPager.setAdapter(adapter);
-    viewPager.setOffscreenPageLimit(adapter.getCount() - 1);
+    viewPager.setOffscreenPageLimit(adapter.getItemCount() - 1);
     TabLayout tabLayout = view.findViewById(R.id.tabs);
-    tabLayout.setupWithViewPager(viewPager);
+
+    new TabLayoutMediator(
+            tabLayout, viewPager, (tab, position) -> tab.setText(adapter.getPageTitle(position)))
+        .attach();
   }
 
   @Override
@@ -60,28 +62,26 @@ public class DashboardFragment extends Fragment {
     inflater.inflate(R.menu.send, menu);
   }
 
-  private static class GooglePlusFragmentPageAdapter extends FragmentPagerAdapter {
+  private static class GooglePlusFragmentPageAdapter extends FragmentStateAdapter {
 
     private final String name;
 
-    public GooglePlusFragmentPageAdapter(FragmentManager fm, String name) {
-      super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+    public GooglePlusFragmentPageAdapter(Fragment fragment, String name) {
+      super(fragment);
       this.name = name;
     }
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
+    public Fragment createFragment(int position) {
       return DashboardChildFragment.newInstance(position, name);
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
       return 2;
     }
 
-    @Nullable
-    @Override
     public CharSequence getPageTitle(int position) {
       return "Dashboard " + position;
     }
