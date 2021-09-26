@@ -6,8 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BottomNavItemSelectedListener
-    implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class BottomNavItemSelectedListener implements BottomNavigationView.OnItemSelectedListener {
 
   private final Toolbar toolbar;
   private final ViewPager2 viewPager;
